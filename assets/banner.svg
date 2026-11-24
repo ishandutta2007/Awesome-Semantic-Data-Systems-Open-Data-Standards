@@ -1,0 +1,174 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="100%" height="360">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f1d"/>
+      <stop offset="50%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+
+    <!-- Accent Gradients -->
+    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="50%" stop-color="#818cf8"/>
+      <stop offset="100%" stop-color="#c084fc"/>
+    </linearGradient>
+
+    <linearGradient id="badgeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.9"/>
+    </linearGradient>
+
+    <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#c084fc" stop-opacity="0.1"/>
+    </linearGradient>
+
+    <!-- Filter for Glow Effect -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="15" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <style>
+    @keyframes pulseNode {
+      0%, 100% { r: 5px; opacity: 0.6; }
+      50% { r: 8px; opacity: 1; }
+    }
+    @keyframes dashMove {
+      0% { stroke-dashoffset: 0; }
+      100% { stroke-dashoffset: -60; }
+    }
+    @keyframes orbit1 {
+      0% { transform: rotate(0deg) translateX(40px) rotate(0deg); }
+      100% { transform: rotate(360deg) translateX(40px) rotate(-360deg); }
+    }
+    @keyframes floatPill {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-7px); }
+    }
+    @keyframes floatPillReverse {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(7px); }
+    }
+    .node-pulse-1 { animation: pulseNode 3s infinite ease-in-out; }
+    .node-pulse-2 { animation: pulseNode 4s infinite ease-in-out 1s; }
+    .node-pulse-3 { animation: pulseNode 3.5s infinite ease-in-out 0.5s; }
+    .edge-flow { stroke-dasharray: 6, 6; animation: dashMove 3s linear infinite; }
+    .pill-float-1 { animation: floatPill 5s ease-in-out infinite; }
+    .pill-float-2 { animation: floatPillReverse 6s ease-in-out infinite 1s; }
+    .pill-float-3 { animation: floatPill 5.5s ease-in-out infinite 0.5s; }
+  </style>
+
+  <!-- Background Base -->
+  <rect width="100%" height="100%" fill="url(#bgGrad)"/>
+
+  <!-- Subtle ambient background nebula lights -->
+  <circle cx="200" cy="80" r="140" fill="#38bdf8" opacity="0.08" filter="url(#softGlow)"/>
+  <circle cx="1000" cy="280" r="160" fill="#818cf8" opacity="0.08" filter="url(#softGlow)"/>
+  <circle cx="600" cy="180" r="180" fill="#c084fc" opacity="0.05" filter="url(#softGlow)"/>
+
+  <!-- Knowledge Graph Grid / Neural Edges in background -->
+  <g stroke="url(#lineGrad)" stroke-width="1.5">
+    <line x1="80" y1="60" x2="220" y2="140" />
+    <line x1="220" y1="140" x2="160" y2="280" />
+    <line x1="220" y1="140" x2="380" y2="90" />
+    <line x1="380" y1="90" x2="480" y2="220" />
+    <line x1="160" y1="280" x2="320" y2="310" />
+
+    <line x1="1050" y1="70" x2="940" y2="150" />
+    <line x1="940" y1="150" x2="1100" y2="240" />
+    <line x1="940" y1="150" x2="820" y2="110" />
+    <line x1="820" y1="110" x2="750" y2="250" />
+    <line x1="1100" y1="240" x2="980" y2="320" />
+  </g>
+
+  <!-- Animated Data Flow Edges -->
+  <g stroke="#38bdf8" stroke-width="2" opacity="0.7">
+    <line x1="80" y1="60" x2="220" y2="140" class="edge-flow" />
+    <line x1="220" y1="140" x2="380" y2="90" class="edge-flow" />
+    <line x1="1050" y1="70" x2="940" y2="150" class="edge-flow" />
+    <line x1="940" y1="150" x2="1100" y2="240" class="edge-flow" />
+  </g>
+
+  <!-- Graph Nodes (Triples / Entities) -->
+  <g fill="#38bdf8">
+    <circle cx="80" cy="60" r="5" class="node-pulse-1" filter="url(#glow)"/>
+    <circle cx="220" cy="140" r="7" class="node-pulse-2" filter="url(#glow)" fill="#818cf8"/>
+    <circle cx="160" cy="280" r="6" class="node-pulse-3" filter="url(#glow)" fill="#c084fc"/>
+    <circle cx="380" cy="90" r="5" class="node-pulse-2" filter="url(#glow)"/>
+    <circle cx="320" cy="310" r="4" class="node-pulse-1" filter="url(#glow)"/>
+
+    <circle cx="1050" cy="70" r="6" class="node-pulse-2" filter="url(#glow)" fill="#c084fc"/>
+    <circle cx="940" cy="150" r="7" class="node-pulse-1" filter="url(#glow)" fill="#38bdf8"/>
+    <circle cx="1100" cy="240" r="6" class="node-pulse-3" filter="url(#glow)" fill="#818cf8"/>
+    <circle cx="820" cy="110" r="5" class="node-pulse-1" filter="url(#glow)"/>
+    <circle cx="980" cy="320" r="5" class="node-pulse-2" filter="url(#glow)"/>
+  </g>
+
+  <!-- Subtle Floating Standard Badges (Pills) Behind Title But Visible -->
+  <g class="pill-float-1">
+    <rect x="70" y="220" width="105" height="30" rx="15" fill="url(#badgeGrad)" stroke="#38bdf8" stroke-width="1.2" opacity="0.85"/>
+    <text x="122" y="240" fill="#38bdf8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" text-anchor="middle">RDF / OWL</text>
+  </g>
+
+  <g class="pill-float-2">
+    <rect x="1000" y="160" width="115" height="30" rx="15" fill="url(#badgeGrad)" stroke="#818cf8" stroke-width="1.2" opacity="0.85"/>
+    <text x="1057" y="180" fill="#818cf8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" text-anchor="middle">W3C DCAT-AP</text>
+  </g>
+
+  <g class="pill-float-3">
+    <rect x="910" y="270" width="120" height="30" rx="15" fill="url(#badgeGrad)" stroke="#c084fc" stroke-width="1.2" opacity="0.85"/>
+    <text x="970" y="290" fill="#c084fc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" text-anchor="middle">SPARQL / SHACL</text>
+  </g>
+
+  <!-- FOREGROUND: Header & Typography (Crisp and Unobscured) -->
+  <g text-anchor="middle">
+    <!-- Top Category Label -->
+    <text x="600" y="85" fill="#38bdf8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="700" letter-spacing="3" text-transform="uppercase">
+      🌐 ENTERPRISE KNOWLEDGE GRAPHS &amp; LINKED OPEN DATA
+    </text>
+
+    <!-- Main Title -->
+    <text x="600" y="150" fill="url(#primaryGrad)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="38" font-weight="900" letter-spacing="-0.5">
+      Semantic Data Systems &amp; Open Data Standards
+    </text>
+
+    <!-- Subtitle -->
+    <text x="600" y="195" fill="#e2e8f0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="17" font-weight="500">
+      Curated Ecosystem of Enterprise Semantic Platforms, W3C Standards &amp; Open-Source Repositories
+    </text>
+
+    <!-- Interactive Pill Highlights (SKOS, DCAT, RDF-Star, GraphRAG, LOD) -->
+    <g transform="translate(230, 235)">
+      <!-- Pill 1 -->
+      <rect x="0" y="0" width="135" height="34" rx="17" fill="#1e293b" stroke="#334155" stroke-width="1.2"/>
+      <text x="67" y="22" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600">⚡ GraphRAG &amp; AI</text>
+
+      <!-- Pill 2 -->
+      <rect x="150" y="0" width="140" height="34" rx="17" fill="#1e293b" stroke="#334155" stroke-width="1.2"/>
+      <text x="220" y="22" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600">📊 DCAT Catalogs</text>
+
+      <!-- Pill 3 -->
+      <rect x="305" y="0" width="140" height="34" rx="17" fill="#1e293b" stroke="#334155" stroke-width="1.2"/>
+      <text x="375" y="22" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600">🧠 SKOS Taxonomies</text>
+
+      <!-- Pill 4 -->
+      <rect x="460" y="0" width="135" height="34" rx="17" fill="#1e293b" stroke="#334155" stroke-width="1.2"/>
+      <text x="527" y="22" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600">🔗 Linked Data</text>
+
+      <!-- Pill 5 -->
+      <rect x="610" y="0" width="130" height="34" rx="17" fill="#1e293b" stroke="#334155" stroke-width="1.2"/>
+      <text x="675" y="22" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600">🛡️ SHACL Rules</text>
+    </g>
+  </g>
+
+  <!-- Bottom Accent Border -->
+  <rect x="0" y="356" width="100%" height="4" fill="url(#primaryGrad)"/>
+</svg>
