@@ -78,7 +78,7 @@ Below is the comparative breakdown of industry-leading enterprise SaaS platforms
 
 ## 🔓 Open-Source GitHub Projects
 
-The following table presents premier open-source repositories for linked data publishing, DCAT catalogs, SKOS taxonomy editors, triple stores, and semantic modeling frameworks, ranked by GitHub Stars_Count (**Stargazers Count, Descending**):
+The following table presents premier open-source repositories for linked data publishing, DCAT catalogs, SKOS taxonomy editors, triple stores, and semantic modeling frameworks, ranked by GitHub_Stars_Count (**Stargazers Count, Descending**):
 
 | Repository / Project | Stargazers ⭐ | Primary Focus & Specification Compliance | Core Tech Stack | Description |
 | :--- | :---: | :--- | :--- | :--- |
@@ -165,7 +165,7 @@ We welcome contributions from the open data, knowledge graph, and semantic web c
 2. **Add or update an entry** in `README.md` keeping the tabular structure.
 3. **Ensure strict adherence to criteria**:
    - For SaaS products: include specific pricing starting tiers and exact free tier/trial limits.
-   - For open-source tools: include the official repo link, accurate GitHub Stars_Badge (`style=social&color=white`), and brief capability summary.
+   - For open-source tools: include the official repo link, accurate GitHub_Stars_Badge (`style=social&color=white`), and brief capability summary.
 4. **Submit a Pull Request** with a descriptive title and concise summary of changes.
 
 ---
